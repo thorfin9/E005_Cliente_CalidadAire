@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calidad del aire - Mapa</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+	<link rel="stylesheet" th:href="@{/styles/aire.css}">
+</head>
+
+<body>
+	<header th:replace="~{includes/plantilla.html::cabecera}"></header>
+	<nav th:replace="~{includes/plantilla.html::menu}"></nav>
+	<main>
+		<section>
+			<h2>Mapa de estaciones</h2>
+			<p>Estaciones de la red de calidad del aire en Bizkaia. Pulsa un pin para ver su nombre.</p>
+			<article th:if="${f_mensaje}" id="cajaMensajes">
+				<h2 th:text="${f_mensaje}"></h2>
+			</article>
+
+			<div id="mapa"></div>
+
+			<ul id="datosEstaciones" hidden>
+				<li th:each="e : ${estaciones}" th:data-nombre="${e.nombre}" th:data-lat="${e.latitud}"
+					th:data-lon="${e.longitud}"></li>
+			</ul>
+			<p class="total" th:text="${#arrays.length(estaciones)} + ' estaciones'"></p>
+		</section>
+	</main>
+	<footer th:replace="~{includes/plantilla.html::pie}"></footer>
+
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<script th:src="@{/js/mapa.js}"></script>
+</body>
+
+</html>

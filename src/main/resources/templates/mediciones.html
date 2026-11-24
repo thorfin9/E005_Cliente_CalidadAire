@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calidad del aire - Mediciones</title>
+	<link rel="stylesheet" th:href="@{/styles/aire.css}">
+</head>
+
+<body>
+	<header th:replace="~{includes/plantilla.html::cabecera}"></header>
+	<nav th:replace="~{includes/plantilla.html::menu}"></nav>
+	<main>
+		<section>
+			<h2>Mediciones actuales</h2>
+			<p>Última medición de cada contaminante, ordenada por municipio. Los datos se actualizan cada hora con un
+				desfase de 2-3 horas.</p>
+			<article th:if="${f_mensaje}" id="cajaMensajes">
+				<h2 th:text="${f_mensaje}"></h2>
+			</article>
+			<p th:if="${#lists.isEmpty(tabla.filas)}">No hay datos para mostrar.</p>
+
+			<div class="contenedorTabla" th:unless="${#lists.isEmpty(tabla.filas)}">
+				<table class="tabla">
+					<thead>
+						<tr>
+							<th>Municipio</th>
+							<th>Estación</th>
+							<th th:each="c : ${tabla.contaminantes}" th:text="${c}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="fila : ${tabla.filas}">
+							<td th:text="${fila.municipio}"></td>
+							<td th:text="${fila.estacion}"></td>
+							<td th:each="c : ${tabla.contaminantes}" th:with="valor=${fila.valores.get(c)}"
+								th:text="${valor != null} ? ${valor} : '—'"
+								th:classappend="${valor == null} ? 'sinDato'"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+	<footer th:replace="~{includes/plantilla.html::pie}"></footer>
+</body>
+
+</html>

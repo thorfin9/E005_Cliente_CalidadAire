@@ -1,0 +1,20 @@
+<header th:fragment="cabecera">
+	<a class="logo" th:href="@{/mapa}">
+		<span class="logoIcono">&#127811;</span> CALIDAD DEL AIRE
+	</a>
+	<span class="subLogo">Bizkaia &middot; Open Data Euskadi</span>
+</header>
+
+<nav th:fragment="menu">
+	<ul>
+		<li><a th:href="@{/mapa}" th:classappend="${pestana == 'mapa'} ? 'activa'">&#128205; Mapa de estaciones</a></li>
+		<li><a th:href="@{/mediciones}" th:classappend="${pestana == 'mediciones'} ? 'activa'">&#128202; Mediciones
+				actuales</a></li>
+		<li><a th:href="@{/contaminantes}" th:classappend="${pestana == 'contaminantes'} ? 'activa'">&#9878;
+				Contaminantes y límites</a></li>
+	</ul>
+</nav>
+
+<footer th:fragment="pie">
+	Calidad del aire &middot; datos de Open Data Euskadi &middot; mapa &copy; colaboradores de OpenStreetMap
+</footer>

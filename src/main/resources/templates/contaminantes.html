@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calidad del aire - Contaminantes</title>
+	<link rel="stylesheet" th:href="@{/styles/aire.css}">
+</head>
+<body>
+	<header th:replace="~{includes/plantilla.html::cabecera}"></header>
+	<nav th:replace="~{includes/plantilla.html::menu}"></nav>
+	<main>
+		<section>
+			<h2>Contaminantes y límites legales</h2>
+			<p>Gases y partículas que mide habitualmente la red vasca de calidad del aire, con sus valores límite
+				según el Real Decreto 102/2011 (transpone la Directiva 2008/50/CE).</p>
+
+			<div class="contenedorTabla">
+				<table class="tabla">
+					<thead>
+						<tr><th>Contaminante</th><th>Qué es / origen principal</th><th>Valor límite o umbral</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><b>SO₂</b><br><small>Dióxido de azufre</small></td>
+							<td>Gas procedente de la combustión de carbón y derivados del petróleo (industria y energía). Irrita las vías respiratorias.</td>
+							<td><b>Horario: 350 µg/m³</b> (no superar más de 24 veces al año)<br>Diario: 125 µg/m³ (no superar más de 3 veces al año)</td>
+						</tr>
+						<tr>
+							<td><b>NO</b><br><small>Monóxido de nitrógeno</small></td>
+							<td>Se emite en la combustión a alta temperatura (tráfico, industria) y se oxida a NO₂ en la atmósfera.</td>
+							<td>Sin valor límite propio. Se vigila porque es precursor del NO₂ y del ozono.</td>
+						</tr>
+						<tr>
+							<td><b>NO₂</b><br><small>Dióxido de nitrógeno</small></td>
+							<td>Procede sobre todo del tráfico rodado. Afecta al sistema respiratorio y favorece la formación de ozono.</td>
+							<td><b>Horario: 200 µg/m³</b> (no superar más de 18 veces al año)<br>Anual: 40 µg/m³</td>
+						</tr>
+						<tr>
+							<td><b>NOx</b><br><small>Óxidos de nitrógeno</small></td>
+							<td>Suma de NO y NO₂ expresada como NO₂.</td>
+							<td>Nivel crítico para la vegetación: 30 µg/m³ (media anual).</td>
+						</tr>
+						<tr>
+							<td><b>O₃</b><br><small>Ozono</small></td>
+							<td>Contaminante secundario: se forma por reacciones del NOx y compuestos orgánicos volátiles con la luz solar. Es más alto en verano.</td>
+							<td><b>Umbral de información: 180 µg/m³</b> (media horaria)<br>Umbral de alerta: 240 µg/m³ (media horaria)<br>Valor objetivo salud: 120 µg/m³ (máxima diaria de medias octohorarias)</td>
+						</tr>
+						<tr>
+							<td><b>CO</b><br><small>Monóxido de carbono</small></td>
+							<td>Gas incoloro e inodoro por combustión incompleta (tráfico, calefacciones). Reduce el transporte de oxígeno en sangre.</td>
+							<td><b>10 mg/m³</b> (máxima diaria de las medias móviles octohorarias)</td>
+						</tr>
+						<tr>
+							<td><b>Benceno</b><br><small>C₆H₆</small></td>
+							<td>Compuesto orgánico volátil presente en gasolinas y emisiones industriales. Es cancerígeno.</td>
+							<td><b>Anual: 5 µg/m³</b></td>
+						</tr>
+						<tr>
+							<td><b>PM₁₀</b><br><small>Partículas &lt; 10 µm</small></td>
+							<td>Polvo, hollín y aerosoles de tráfico, industria, obras y fuentes naturales. Penetran en las vías respiratorias.</td>
+							<td><b>Diario: 50 µg/m³</b> (no superar más de 35 veces al año)<br>Anual: 40 µg/m³</td>
+						</tr>
+						<tr>
+							<td><b>PM₂.₅</b><br><small>Partículas &lt; 2,5 µm</small></td>
+							<td>Partículas finas de combustión que llegan hasta los alvéolos pulmonares y al torrente sanguíneo.</td>
+							<td><b>Anual: 25 µg/m³</b></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<p class="notaFuente">Fuentes de referencia: BOE (Real Decreto 102/2011, de mejora de la calidad del aire) y CIEMAT.
+				Unidades: µg/m³ = microgramos por metro cúbico; mg/m³ = miligramos por metro cúbico.</p>
+		</section>
+	</main>
+	<footer th:replace="~{includes/plantilla.html::pie}"></footer>
+</body>
+</html>
