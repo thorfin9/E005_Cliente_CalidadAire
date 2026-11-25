@@ -7,6 +7,7 @@ import org.springframework.web.client.RestClient;
 
 import com.ipartek.modelo.TablaMediciones;
 
+
 @Service
 public class MedicionServicioImp implements MedicionServicio {
 

@@ -206,6 +206,27 @@ td.sinDato {
 	text-align: center;
 }
 
+
+td.superaLimite {
+	color: #ff6b6b;
+	font-weight: 700;
+	background: rgba(239, 68, 68, .18);
+	box-shadow: inset 3px 0 0 #ef4444;
+}
+
+.leyenda {
+	margin-top: 14px;
+	font-size: .85rem;
+}
+
+.muestraRoja {
+	padding: 1px 8px;
+	border-radius: 6px;
+	font-weight: 700;
+	color: #ff6b6b;
+	background: rgba(239, 68, 68, .18);
+}
+
 .notaFuente {
 	margin-top: 18px;
 	font-size: .85rem;
@@ -261,4 +282,10 @@ footer {
 	#mapa {
 		height: 380px;
 	}
+}
+
+
+.supera {
+	color: #ef4444;
+	font-weight: 800;
 }

@@ -36,11 +36,18 @@
 							<td th:text="${fila.estacion}"></td>
 							<td th:each="c : ${tabla.contaminantes}" th:with="valor=${fila.valores.get(c)}"
 								th:text="${valor != null} ? ${valor} : '—'"
-								th:classappend="${valor == null} ? 'sinDato'"></td>
+								th:classappend="${valor == null} ? 'sinDato' : (${@medicionControlador.superaLimite(c, valor)} ? 'supera')"></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
+			
+			<p class="leyenda" th:unless="${#lists.isEmpty(tabla.filas)}">
+				<span class="muestraRoja">Rojo</span> = el valor supera el límite legal del contaminante.
+				Pasa el ratón por una celda para ver su límite. «—» = la estación no tiene ese sensor.
+			</p>
+			
+			<p class="notaFuente">Los valores en <b class="supera">rojo y negrita</b> superan el límite (ver pestaña Contaminantes).</p>
 		</section>
 	</main>
 	<footer th:replace="~{includes/plantilla.html::pie}"></footer>
